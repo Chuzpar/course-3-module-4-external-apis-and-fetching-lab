@@ -1,11 +1,8 @@
-// index.js
-const weatherApi = "https://api.weather.gov/alerts/active?area="
-
-// Your code here!
 const stateInput = document.getElementById('state-input');
 const fetchBtn = document.getElementById('fetch-alerts');
 const alertsContainer = document.getElementById('alerts-container');
 const errorDiv = document.getElementById('error-message');
+
 
 function clearUI() {
     errorDiv.classList.add('hidden');
@@ -13,19 +10,26 @@ function clearUI() {
     alertsContainer.innerHTML = '';
 }
 
+
 function displayError(message) {
     errorDiv.textContent = message;
     errorDiv.classList.remove('hidden');
-    alertsContainer.innerHTML = ''; // clear any previous alerts
+    alertsContainer.innerHTML = ''; 
 }
 
+
 function displayAlerts(data, stateAbbr) {
+
     const title = data.title || `Alerts for ${stateAbbr.toUpperCase()}`;
     const alertCount = data.features ? data.features.length : 0;
+
+
+
 
     const summary = document.createElement('div');
     summary.className = 'alert-summary';
     summary.textContent = `${title}: ${alertCount}`;
+
 
     const list = document.createElement('ul');
     list.className = 'alert-list';
@@ -43,12 +47,15 @@ function displayAlerts(data, stateAbbr) {
         });
     }
 
+
     alertsContainer.innerHTML = '';
     alertsContainer.appendChild(summary);
     alertsContainer.appendChild(list);
 }
 
+
 async function fetchWeatherAlerts(stateAbbr) {
+
     if (!stateAbbr || stateAbbr.length !== 2 || !/^[A-Za-z]{2}$/.test(stateAbbr)) {
         displayError('Please enter a valid two-letter state abbreviation (e.g., NY, CA).');
         return;
@@ -57,7 +64,8 @@ async function fetchWeatherAlerts(stateAbbr) {
     const upperState = stateAbbr.toUpperCase();
     const url = `https://api.weather.gov/alerts/active?area=${upperState}`;
 
-    clearUI(); 
+    clearUI();
+
     try {
         const response = await fetch(url);
         if (!response.ok) {
@@ -71,13 +79,17 @@ async function fetchWeatherAlerts(stateAbbr) {
     }
 }
 
+
 function onFetchClick() {
     const state = stateInput.value.trim();
+
     stateInput.value = '';
     fetchWeatherAlerts(state);
 }
 
+
 fetchBtn.addEventListener('click', onFetchClick);
+
 
 stateInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
