@@ -1,79 +1,83 @@
-/* General Styles */
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f4f4;
-  color: #333;
-  line-height: 1.6;
+    font-family: Arial, sans-serif;
+    background: #f0f4f8;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 h1 {
-  text-align: center;
-  margin: 20px 0;
+    color: #1e3c72;
 }
 
-/* Input Field and Button */
-#city-input {
-  display: block;
-  margin: 20px auto;
-  padding: 10px;
-  width: 80%;
-  max-width: 400px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+.input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
 }
 
-#fetch-weather {
-  display: block;
-  margin: 10px auto;
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+#state-input {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-transform: uppercase;
 }
 
-#fetch-weather:hover {
-  background-color: #0056b3;
+button {
+    background: #1e3c72;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
 }
 
-/* Weather Display Section */
-#weather-display {
-  margin: 20px auto;
-  padding: 10px;
-  width: 90%;
-  max-width: 600px;
-  background: #fff;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+button:hover {
+    background: #0f2b4f;
 }
 
-/* Error Message */
-#error-message {
-  color: red;
-  font-weight: bold;
-  text-align: center;
-  margin-top: 10px;
+.error {
+    background: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    border-left: 4px solid #f5c6cb;
 }
 
-/* Hidden Class for Error Handling */
 .hidden {
-  display: none;
+    display: none;
 }
 
-/* BONUS: Loading Spinner */
-#loading-spinner {
-  display: none;
-  margin: 20px auto;
-  text-align: center;
+.alert-summary {
+    background: #e9ecef;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    font-weight: bold;
 }
 
-#loading-spinner img {
-  width: 50px;
-  height: 50px;
+.alert-list {
+    list-style: none;
+    padding: 0;
+}
+
+.alert-list li {
+    background: #f8f9fa;
+    margin-bottom: 8px;
+    padding: 10px;
+    border-left: 4px solid #ffc107;
+    border-radius: 4px;
 }
